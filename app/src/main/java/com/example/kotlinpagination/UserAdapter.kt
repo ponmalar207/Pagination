@@ -1,6 +1,5 @@
 package com.example.kotlinpagination
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,7 +57,6 @@ class UserAdapter : PagedListAdapter<User, RecyclerView.ViewHolder>(USER_COMPARA
         private val errorMsg: TextView = itemView.findViewById(R.id.tv_message)
 
         fun bindView(networkState: NetworkState?) {
-            // println("bindView ${networkState?.status}")
             if (networkState != null && networkState.status == NetworkState.Status.RUNNING) {
                 progressBar.visibility = View.VISIBLE
             } else {
@@ -135,62 +133,4 @@ class UserAdapter : PagedListAdapter<User, RecyclerView.ViewHolder>(USER_COMPARA
         }
     }
 }
-//class UserAdapter : PagedListAdapter<User, UserAdapter.UserViewHolder>(USER_COMPARATOR) {
-//    class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        private val totalRatings: TextView = itemView.findViewById(R.id.tv_total_rating)
-//        private val personName: TextView = itemView.findViewById(R.id.tv_name)
-//        private val specialist: TextView = itemView.findViewById(R.id.tv_specialist)
-//        private val languages: TextView = itemView.findViewById(R.id.tv_languages)
-//        private val experience: TextView = itemView.findViewById(R.id.tv_experience)
-//        private val charge: TextView = itemView.findViewById(R.id.tv_charge)
-//        private val waitTime: TextView = itemView.findViewById(R.id.tv_wait_time)
-//        private val profileImage: ImageView = itemView.findViewById(R.id.iv_profileImage)
-//        private val ratingBar: RatingBar = itemView.findViewById(R.id.rb_ratings)
-//        private val verify: ImageView = itemView.findViewById(R.id.iv_verify)
-//        private val bell: ImageView = itemView.findViewById(R.id.iv_bell)
-//        private var chat: Button = itemView.findViewById(R.id.btn_chat)
-//        fun bind(user: User) {
-//            personName.text = user.name
-//            specialist.text = user.specialist
-//            languages.text = user.languages
-//            experience.text = user.experience
-//            charge.text = user.charge
-//            waitTime.text = user.waitingTime
-//            totalRatings.text = user.totalRatings.toString()
-//            Glide.with(itemView.context).load(user.profileImage).circleCrop().into(profileImage)
-//            ratingBar.rating = user.ratings.toFloat()
-////            if (user.status == 1) {    //invisible
-////                val gradientDrawable = GradientDrawable()
-////                gradientDrawable.cornerRadius = 20F
-////                gradientDrawable.setStroke(3, Color.parseColor("#D84BCA5C"))
-////                chat.background = gradientDrawable
-////            } else {         //visible
-////                bell.visibility = View.VISIBLE
-////                waitTime.visibility = View.VISIBLE
-////                val gradientDrawable = GradientDrawable()
-////                gradientDrawable.cornerRadius = 20F
-////                gradientDrawable.setStroke(3, Color.RED)
-////                chat.background = gradientDrawable
-////                chat.setTextColor(Color.RED)
-////            }
-//        }
-//    }
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserAdapter.UserViewHolder {
-//        val view = LayoutInflater.from(parent.context).inflate(R.layout.astrologer_list, parent, false)
-//        return UserViewHolder(view)
-//    }
-//
-//    override fun onBindViewHolder(holder: UserAdapter.UserViewHolder, position: Int) {
-//        getItem(position)?.let { holder.bind(it) }
-//    }
-//    companion object {
-//        private val USER_COMPARATOR = object : DiffUtil.ItemCallback<User>() {
-//            override fun areItemsTheSame(oldItem: User, newItem: User): Boolean =
-//                oldItem == newItem
-//
-//            override fun areContentsTheSame(oldItem: User, newItem: User): Boolean =
-//                newItem == oldItem
-//        }
-//    }
-//}
+
