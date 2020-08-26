@@ -1,6 +1,4 @@
 package com.example.kotlinpagination
-
-import androidx.arch.core.util.Function
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
@@ -11,7 +9,6 @@ import androidx.paging.PagedList
 class UserViewModel : ViewModel() {
     private var networkState: LiveData<NetworkState>? = null
     private lateinit var userPagedList: LiveData<PagedList<User>>
-
     fun getUsersList(requestData: RequestData): LiveData<PagedList<User>> {
         val itemDataSourceFactory = UserDataSourceFactory(requestData)
         val config = PagedList.Config.Builder().setEnablePlaceholders(false)
