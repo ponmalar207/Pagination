@@ -19,7 +19,6 @@ class UserViewModel : ViewModel() {
         userPagedList = LivePagedListBuilder(itemDataSourceFactory, config).build()
         return userPagedList
     }
-
     fun getNetworkState(): LiveData<NetworkState>? {
         return networkState
     }
