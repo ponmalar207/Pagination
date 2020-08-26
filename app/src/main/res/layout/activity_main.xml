@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/linear_layout_height"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/available_balance_start"
+            android:layout_marginTop="@dimen/available_balance_top"
+            android:text="@string/available_balance"
+            android:textSize="@dimen/text_size" />
+
+        <TextView
+            android:id="@+id/tv_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/balance_start"
+            android:layout_marginTop="@dimen/available_balance_top"
+            android:text="@string/balance"
+            android:textSize="@dimen/text_size" />
+
+        <Button
+            android:id="@+id/btn_recharge"
+            android:layout_width="@dimen/recharge_btn_width"
+            android:layout_height="@dimen/recharge_btn_height"
+            android:layout_marginStart="@dimen/recharge_btn_start"
+            android:layout_marginTop="@dimen/recharge_btn_top"
+            android:background="@drawable/btn_background"
+            android:text="@string/recharge"
+            android:textColor="@color/green"
+            android:textSize="@dimen/text_size" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linear_layout" />
+
+</RelativeLayout>

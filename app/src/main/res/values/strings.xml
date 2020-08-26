@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Kotlin Pagination</string>
+    <string name="available_balance">Available Balance:</string>
+    <string name="balance">$0.0</string>
+    <string name="recharge">Recharge</string>
+    <string name="wait_time">Wait time - 10m</string>
+    <string name="chat">Chat</string>
+    <string name="charge">$32/minute</string>
+    <string name="experience">Exp:5Years</string>
+    <string name="languages">English,hindi,Punjabi</string>
+    <string name="specialist">Numerology</string>
+    <string name="name">Aaman</string>
+    <string name="total_rating">3843total</string>
+    <string name="rating">Rating</string>
+    <string name="verify">Verify</string>
+    <string name="bell">Bell</string>
+    <string name="total">total</string>
+    <string name="no_data">No more data to load</string>
+</resources>
