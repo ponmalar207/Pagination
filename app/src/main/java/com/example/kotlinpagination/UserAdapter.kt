@@ -58,7 +58,7 @@ class UserAdapter : PagedListAdapter<User, RecyclerView.ViewHolder>(USER_COMPARA
         private val errorMsg: TextView = itemView.findViewById(R.id.tv_message)
 
         fun bindView(networkState: NetworkState?) {
-           // println("bindView ${networkState?.status}")
+            // println("bindView ${networkState?.status}")
             if (networkState != null && networkState.status == NetworkState.Status.RUNNING) {
                 progressBar.visibility = View.VISIBLE
             } else {
