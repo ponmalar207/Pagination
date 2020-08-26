@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-//https://proandroiddev.com/8-steps-to-implement-paging-library-in-android-d02500f7fffe
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
