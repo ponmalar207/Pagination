@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 
-
 class UserViewModel : ViewModel() {
     private var networkState: LiveData<NetworkState>? = null
     private lateinit var userPagedList: LiveData<PagedList<User>>

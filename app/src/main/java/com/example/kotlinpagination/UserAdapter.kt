@@ -1,5 +1,8 @@
 package com.example.kotlinpagination
 
+import android.annotation.SuppressLint
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +11,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+
 
 class UserAdapter : PagedListAdapter<User, RecyclerView.ViewHolder>(USER_COMPARATOR) {
     private var networkState: NetworkState? = null
@@ -25,30 +29,32 @@ class UserAdapter : PagedListAdapter<User, RecyclerView.ViewHolder>(USER_COMPARA
         private val verify: ImageView = itemView.findViewById(R.id.iv_verify)
         private val bell: ImageView = itemView.findViewById(R.id.iv_bell)
         private var chat: Button = itemView.findViewById(R.id.btn_chat)
+
+        @SuppressLint("SetTextI18n")
         fun bind(user: User) {
             personName.text = user.name
             specialist.text = user.specialist
             languages.text = user.languages
             experience.text = user.experience
             charge.text = user.charge
-            waitTime.text = user.waitingTime
+            waitTime.text = "Wait time - ${user.waitingTime}"
             totalRatings.text = user.totalRatings.toString()
             Glide.with(itemView.context).load(user.profileImage).circleCrop().into(profileImage)
             ratingBar.rating = user.ratings.toFloat()
-//            if (user.status == 1) {    //invisible
-//                val gradientDrawable = GradientDrawable()
-//                gradientDrawable.cornerRadius = 20F
-//                gradientDrawable.setStroke(3, Color.parseColor("#D84BCA5C"))
-//                chat.background = gradientDrawable
-//            } else {         //visible
-//                bell.visibility = View.VISIBLE
-//                waitTime.visibility = View.VISIBLE
-//                val gradientDrawable = GradientDrawable()
-//                gradientDrawable.cornerRadius = 20F
-//                gradientDrawable.setStroke(3, Color.RED)
-//                chat.background = gradientDrawable
-//                chat.setTextColor(Color.RED)
-//            }
+            if (user.activeStatus == 1) {
+                bell.visibility = View.VISIBLE
+                waitTime.visibility = View.VISIBLE
+                val gradientDrawable = GradientDrawable()
+                gradientDrawable.cornerRadius = 20F
+                gradientDrawable.setStroke(3, Color.RED)
+                chat.background = gradientDrawable
+                chat.setTextColor(Color.RED)
+            } else {
+                val gradientDrawable = GradientDrawable()
+                gradientDrawable.cornerRadius = 20F
+                gradientDrawable.setStroke(3, Color.parseColor("#D84BCA5C"))
+                chat.background = gradientDrawable
+            }
         }
     }
 
@@ -99,7 +105,6 @@ class UserAdapter : PagedListAdapter<User, RecyclerView.ViewHolder>(USER_COMPARA
             TYPE_ITEM
         }
     }
-
 
     private fun hasExtraRow(): Boolean {
         return networkState != null && networkState !== NetworkState.LOADED
