@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         recyclerView = findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = UserAdapter()
         val itemViewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
         itemViewModel.getUsersList(RequestData(10, 1, 1)).observe(this, Observer {

@@ -23,8 +23,7 @@ class UserDataSource(val requestData: RequestData) : PageKeyedDataSource<Int, Us
         initialLoading.postValue(NetworkState.LOADING)
         networkState.postValue(NetworkState.LOADING)
 
-        RetrofitClient.apiService.getUsers(requestData)
-            .enqueue(object : retrofit2.Callback<ResponseData> {
+        RetrofitClient.apiService.getUsers(requestData).enqueue(object : retrofit2.Callback<ResponseData> {
                 override fun onResponse(
                     call: Call<ResponseData>,
                     response: Response<ResponseData>
@@ -76,8 +75,7 @@ class UserDataSource(val requestData: RequestData) : PageKeyedDataSource<Int, Us
                     if (response.isSuccessful && response.body() != null) {
                         val apiResponse = response.body()!!.responseData
                         val responseItems = apiResponse?.userList
-                        val nextPageKey =
-                            if (params.requestedLoadSize > responseItems?.size ?: 0) null else params.key + 1
+                        val nextPageKey = if (params.requestedLoadSize > responseItems?.size ?: 0) null else params.key + 1
                         if (responseItems != null) {
                             callback.onResult(responseItems, nextPageKey)
                             networkState.postValue(NetworkState.LOADED)
